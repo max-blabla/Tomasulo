@@ -1,0 +1,42 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/mnt/d/Coding/riscv/Decoding.h
+iostream
+-
+
+/mnt/d/Coding/riscv/Execute.hpp
+Decoding.h
+/mnt/d/Coding/riscv/Decoding.h
+iostream
+-
+
+/mnt/d/Coding/riscv/Memory.h
+
+/mnt/d/Coding/riscv/PipeLing.h
+Register.hpp
+/mnt/d/Coding/riscv/Register.hpp
+Decoding.h
+/mnt/d/Coding/riscv/Decoding.h
+Memory.h
+/mnt/d/Coding/riscv/Memory.h
+Execute.hpp
+/mnt/d/Coding/riscv/Execute.hpp
+cstring
+-
+iostream
+-
+
+/mnt/d/Coding/riscv/Register.hpp
+
+/mnt/d/Coding/riscv/main.cpp
+PipeLing.h
+/mnt/d/Coding/riscv/PipeLing.h
+iostream
+-
+
