@@ -13,7 +13,22 @@ int main() {
     PipeLing program;
     program.ReadIO();
     std::cout<<program.Run()<<'\n';
+    }
+/*bool a[32]={0};
+bool b[32]={0};
+a[0]=a[1]=a[3]=a[4]=a[5]=1;
+b[0]=b[1]=b[2]=b[3]=b[4]=b[5]=1;
+bool carry[32];
+bool sum[32]={0};
+sum[0]=a[0]^b[0];
+carry[0]=a[0]&b[0];
+for(int i=1;i<32;i++){
+    sum[i]=a[i]&b[i]^carry[i-1];
+    carry[i]=(a[i]&b[i])|(a[i]&carry[i-1])|(b[i]&carry[i-1]);
 }
+for(int i=0;i<32;i++)
+    std::cout<<sum[i]<<'\n';
+}*/
 /*#include "io.inc"
 
 int N = 8;

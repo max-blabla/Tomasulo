@@ -9,7 +9,7 @@
 #define Sext(x,k) x<<=k;x>>=k
 #include <iostream>
 enum class Type{
-    R,S,U,I,B,J,L,E
+    R,S,U,I,B,J,L,E,Jr
 };
 struct Issue{
     int rs1;
@@ -58,7 +58,7 @@ public:
             MovSufBin(immediate, tmp, 1, 20);
         }
         else if(opcode==103) {//jalr
-            OpType = Type::J;
+            OpType = Type::Jr;
             SufBin(rd, tmp, 5);
             SufBin(funct3, tmp, 3);
             SufBin(rs1, tmp, 5);

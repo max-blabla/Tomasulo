@@ -26,18 +26,17 @@ class ExecuteTool{
         //jal
         int ans=pc+4;
         int immediate=issue.immediate;
-        switch(issue.opcode) {
-            case 111:{
                 Sext(immediate,11);
                 return std::pair<int,int>(ans,pc+immediate);
-            }
-            case 103: {//jalr
+            //jalr
                 //Sext(immediate,20);
-                Sext(immediate,20);
-                return std::pair<int, int>(ans, (xrs1 + immediate) & (~1));
-            }
-        }
 
+    }
+    std::pair<int,int> Jr_Exec(int & pc,Issue & issue,int & xrs1,int & xrs2) {
+        int ans = pc + 4;
+        int immediate = issue.immediate;
+        Sext(immediate, 20);
+        return std::pair<int, int>(ans, (xrs1 + immediate) & (~1));
     }
     std::pair<int,int> B_Exec(int & pc,Issue & issue,int & xrs1,int & xrs2){
         int immediate=issue.immediate;
@@ -76,7 +75,7 @@ class ExecuteTool{
     }
    /*
     }*/
-    std::pair<int,int> R_Exec(int & pc,Issue & issue,int xrs1,int xrs2){
+    std::pair<int,int> R_Exec(int & pc,Issue & issue,int & xrs1,int & xrs2){
         int ans=0;
         pc+=4;
         int funct=issue.funct3+issue.funct7;
@@ -129,7 +128,7 @@ class ExecuteTool{
         return std::pair<int,int>(ans,pc+4);
     }
 
-    std::pair<int,int> I_Exec(int & pc,Issue & issue,int xrs1,int xrs2){
+    std::pair<int,int> I_Exec(int & pc,Issue & issue,int & xrs1,int & xrs2){
         int immediate=issue.immediate;
         Sext(immediate,20);
         int ans;
@@ -201,6 +200,10 @@ public:
             }
             case Type::I:{
                 std::pair<int,int> ans=I_Exec(Pc,issue,xrs1,xrs2);
+                return ans;
+            }
+            case Type::Jr:{
+                std::pair<int,int>ans=Jr_Exec(Pc,issue,xrs1,xrs2);
                 return ans;
             }
         }
